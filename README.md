@@ -8,7 +8,8 @@ A [Sails](http://sailsjs.org) application.
   - Clonar de Github
 
 ```
-git clone git@gitb.com:juniorUsca/plan.git
+git clone git@github.com:juniorUsca/plan.git
+cd plan
 ```
 
   - Instalar modulos de node

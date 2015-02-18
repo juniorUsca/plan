@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           'angular-sanitize/angular-sanitize.js',
           'angular-scenario/angular-scenario.js', 
           'angular-touch/angular-touch.js', 
-          'bootstrap/dist/js/bootstrap.js',
+          'materialize/dist/js/materialize.js',
           'jquery/dist/jquery.js',
           'es5-shim/es5-shim.js',
           'json3/lib/json3.js'
@@ -46,22 +46,29 @@ module.exports = function(grunt) {
         expand: true,
         cwd: './bower_components',
         src: [
-        	'bootstrap/dist/css/bootstrap.css',
-        	'bootstrap/dist/css/bootstrap-theme.css',
-        	'bootstrap/dist/css/bootstrap.css.map',
+          'materialize/dist/css/materialize.css'
         ],
         flatten: true,
-        dest: '.tmp/public/styles'
+        dest: '.tmp/public/styles/dependencies'
 			}, { 
         expand: true,
         cwd: './bower_components',
         src: [
-        	'bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
-        	'bootstrap/dist/fonts/glyphicons-halflings-regular.ttf'
+        	'materialize/dist/font/roboto/Roboto-Regular.ttf'
+        	//'bootstrap/dist/fonts/glyphicons-halflings-regular.ttf'
         ],
         flatten: true,
-        dest: '.tmp/public/fonts'
-			}]
+        dest: '.tmp/public/styles/font/roboto'
+			}, { 
+        expand: true,
+        cwd: './bower_components',
+        src: [
+          'materialize/dist/font/material-design-icons/Material-Design-Icons.ttf',
+          'materialize/dist/font/material-design-icons/Material-Design-Icons.woff'
+        ],
+        flatten: true,
+        dest: '.tmp/public/styles/font/material-design-icons'
+      }]
 		},
 		build: {
 			files: [{
