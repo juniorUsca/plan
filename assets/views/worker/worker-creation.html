@@ -1,0 +1,137 @@
+
+<div class="github-commit">
+  <div class="container">
+    <div class="commit">        
+      <a id="github-button" href="#/personal/worker-list" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-hardware-keyboard-return valign left"></i><span class="valign right">Atras</span></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <h4 class="col s12 center header">Personal Nuevo.</h4>
+
+
+      <form name="formEdit">
+        <h5 class="col s12 header">Datos Personales.</h5>
+        <div class="col s12 divider"></div>
+        <div class="input-field col s12 m6" ng-class="{error: formEdit.dni.$invalid}">
+          <i class="mdi-action-account-box prefix"></i>
+          <input id="dniWorker" type="text" class="validate" ng-model="_target.dni" required>
+          <label for="dniWorker" ng-class="{active:_target.dni!=undefined}">N&uacute;mero de DNI</label>
+        </div>
+        <div class="col s12 offset-m6"></div>
+        <div class="col s12 divider"></div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="firstNameWorker" type="text" class="validate" ng-model="_target.firstName" required>
+          <label for="firstNameWorker" ng-class="{active:_target.firstName!=undefined}">Nombres</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="lastNameWorker" type="text" class="validate" ng-model="_target.lastName" required>
+          <label for="lastNameWorker" ng-class="{active:_target.lastName!=undefined}">Apellidos</label>
+        </div>
+        <div class="input-field col s12 m4" >
+          <i class="mdi-action-event prefix"></i>
+          <input id="birthdayWorker" type="text" class="datepicker" ng-model="_target.birthday" required>
+          <label for="birthdayWorker" ng-class="{active:_target.birthday!=undefined}">Fecha de Nacimiento</label>
+        </div>
+        <div class="col s12 m6 input-field">
+          <div class="col s12 m4">
+            <h6 class="grey-text">Sexo</h6>
+          </div>
+          <div class="col s12 m4">
+            <input ng-model="_target.gender" value="M" type="radio" id="male" required/>
+            <label for="male" style="top:1px;">M</label>
+          </div>
+          <div class="col s12 m4">
+            <input ng-model="_target.gender" value="F" type="radio" id="female" />
+            <label for="female" style="top:1px;">F</label>
+          </div>
+        </div>
+        <div class="col s12 input-field">
+          <i class="mdi-action-work prefix"></i>
+          <input id="addressWorker" type="text" class="validate" ng-model="_target.address" required>
+          <label for="addressWorker" ng-class="{active:_target.address!=undefined}">Direccion</label>
+        </div>
+        <div class="col s12 divider"></div>
+        
+        <h5 class="col s12 header">Datos de Profesion.</h5>
+        <div class="col s12 divider"></div>
+        
+        <div class="col s12 m4" >
+          <label>Contrato</label>
+          <select class="browser-default" ng-model="_target.office.contract" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Contratado">Contratado</option>
+            <option value="Temporal">Temporal</option>
+            <option value="Otros">Otros</option>
+          </select>
+        </div>
+        <div class="col s12 m4" >
+          <label>Cargo u Ocupacion</label>
+          <select class="browser-default" ng-model="_target.office.occupation" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Residente">Residente</option>
+            <option value="Peon">Peon</option>
+          </select>
+        </div>
+        <div class="col s12 m4" >
+          <label>Especialidad</label>
+          <select class="browser-default" ng-model="_target.office.especiality" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Especialidad 1">Especialidad 1</option>
+            <option value="Especialidad 2">Especialidad 2</option>
+            <option value="Especialidad 3">Especialidad 3</option>
+          </select>
+        </div>
+        <div class="col s12"></div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="bankAccountWorker" type="text" class="validate" ng-model="_target.office.bankAccount" required>
+          <label for="bankAccountWorker" ng-class="{active:_target.office.bankAccount!=undefined}">Cuenta de Banco</label>
+        </div>
+        <div class="col s12 m4" >
+          <label>Sistema de Pensiones</label>
+          <select class="browser-default" ng-model="_target.office.pensionSystem" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Pension 1">Pension 1</option>
+            <option value="Pension 2">Pension 2</option>
+            <option value="Pension 3">Pension 3</option>
+          </select>
+        </div>
+        <div class="col s12 m4" >
+          <label>AFP</label>
+          <select class="browser-default" ng-model="_target.office.afp" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="AFP 1">AFP 1</option>
+            <option value="AFP 2">AFP 2</option>
+            <option value="AFP 3">AFP 3</option>
+          </select>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="row center">
+      <button class="btn waves-effect waves-light right" 
+              type="submit" 
+              name="action" 
+              ng-click="save()" 
+              ng-disabled="isClean() || formEdit.$invalid">Guardar<i class="mdi-content-send right"></i></button>
+      <button ng-click="destroy()"
+              ng-show="_target.id" class="btn waves-effect waves-light right">Eliminar</button>
+    </div>
+  </div>
+</div>
+

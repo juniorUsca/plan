@@ -1,34 +1,50 @@
-
 <div class="github-commit">
   <div class="container">
     <div class="commit">
-      Latest Commit on Github:
-      &nbsp;&nbsp;
-      <a href="" class="sha"></a>
-      &nbsp;&nbsp;
-      <span class="date"></span>
-      <a id="github-button" href="https://github.com/Dogfalo/materialize" class="btn-flat right grey-text text-lighten-5 waves-effect waves-light hide-on-small-only">Github</a>
+      <a id="github-button" href="#/personal/worker-creation" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-content-add valign left"></i><span class="valign right">Nuevo</span></a>
     </div>
   </div>
 </div>
 
 
 <div class="container">
-  <div class="section">
+  <div class="row">
+    <h4 class="col s12 center header">Lista de Trabajadores.</h4>
+    <table class="col s12 centered striped hoverable responsive-table" >
+      <thead><tr>
+        <th data-field="nro">Nro</th>
+        <th data-field="id">DNI</th>
+        <th data-field="names">Nombres y Apellidos</th>
+        <th data-field="contract">Contrato</th>
+        <th data-field="occupation">Cargo</th>
+        <th data-field="pensionSystem">S. Pensiones</th>
+        <th data-field="AFP">AFP</th>
+        <th data-field="options">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      </tr></thead>
 
-    <div class="row">
-      <div class="col s12 m8 offset-m2">
-        <br>
-        <img id="responsive-img" src="images/responsive.png">
-      </div>
-    </div>
-
-    <div class="row">
-      <h3 class="col s12 light center header">Materialize simplifies life for developers and the users they serve.</h3>
-    </div>
+      <tbody>
+        <tr ng-repeat="(key, value) in workers">
+          <td>{{key+1}}</td>
+          <td>{{value.dni}}</td>
+          <td>{{value.firstName}} {{value.lastName}}</td>
+          <td>{{value.office.contract}}</td>
+          <td>{{value.office.occupation}}</td>
+          <td>{{value.office.pensionSystem}}</td>
+          <td>{{value.office.afp}}</td>
+          <td>
+            <div show-on-row-hover style="display:none; max-height:21px"> 
+              <i class="mdi-content-create white-text" style="cursor:pointer; cursor:hand; font-size: 1.1rem;" ng-click="edit(value);"></i>
+              &nbsp&nbsp&nbsp
+              <i class="mdi-content-clear orange-text text-darken-4" style="cursor:pointer; cursor:hand; font-size: 1.1rem;" ng-click="destroy(value);"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
     <!--   Promo Section   -->
-    <div class="row">
+    <!--<div class="row">
       <div class="col s12 m4">
         <div class="center promo">
           <i class="mdi-image-flash-on"></i>
@@ -62,6 +78,5 @@
       <p class="col s8 offset-s2 caption">Checkout what people are creating with Materialize. Get inspired by these beautiful sites and you can even submit your own website to be showcased here.</p>
       <a href="http://materializecss.com/showcase.html" class="btn-large waves-effect waves-light">Explore our Showcase</a>
     </div>
-  </div>
+  </div>-->
 </div>
-

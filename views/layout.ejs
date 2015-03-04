@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>New Sails - Yeoman Materialize App</title>
+    <title>Planillas - GAION</title>
     <meta name="description" content="">
-
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="GAION Planillas. ">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
     
+    <link href="/styles/font/inconsolata.ttf" rel="stylesheet" type="text/css">
+    <!-- Transifex-->
+    <!--<script>
+      window.liveSettings = {
+        api_key: "a0b49b34b93844c38eaee15690d86413",
+        picker: "bottom-right",
+        detectlang: true,
+        dynamic: true,
+        autocollect: true
+      };
+    </script>
+    <script src="//cdn.transifex.com/live.js"></script>-->
+
     <!--  
         Stylesheets and Preprocessors
         ==============================
@@ -31,7 +51,8 @@
     -->
 
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/dependencies/materialize.css">
+    <link rel="stylesheet" href="/styles/dependencies/ghpages-materialize.css">
+    <link rel="stylesheet" href="/styles/dependencies/prism.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
@@ -107,8 +128,10 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/angular.js"></script>
     <script src="/js/dependencies/jquery.js"></script>
+    <script src="/js/dependencies/angular.js"></script>
+    <script src="/js/dependencies/lodash.js"></script>
+    <script src="/js/dependencies/restangular.js"></script>
     <script src="/js/dependencies/angular-animate.js"></script>
     <script src="/js/dependencies/angular-cookies.js"></script>
     <script src="/js/dependencies/angular-mocks.js"></script>
@@ -118,12 +141,17 @@
     <script src="/js/dependencies/angular-scenario.js"></script>
     <script src="/js/dependencies/angular-touch.js"></script>
     <script src="/js/dependencies/es5-shim.js"></script>
+    <script src="/js/dependencies/jquery.timeago.min.js"></script>
     <script src="/js/dependencies/json3.js"></script>
     <script src="/js/dependencies/materialize.js"></script>
-    <script src="/js/custom.js"></script>
+    <script src="/js/dependencies/prism.js"></script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/controllers/about.js"></script>
     <script src="/scripts/controllers/main.js"></script>
+    <script src="/scripts/controllers/worker.js"></script>
+    <script src="/scripts/directives/showOnRowHoverDirective.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/init.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

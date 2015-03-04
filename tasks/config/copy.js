@@ -35,14 +35,15 @@ module.exports = function(grunt) {
           'angular-sanitize/angular-sanitize.js',
           'angular-scenario/angular-scenario.js', 
           'angular-touch/angular-touch.js', 
-          'materialize/dist/js/materialize.js',
+          'lodash/dist/lodash.js', 
+          'restangular/dist/restangular.js', 
           'jquery/dist/jquery.js',
           'es5-shim/es5-shim.js',
           'json3/lib/json3.js'
         ],
 				flatten: true,
 				dest: '.tmp/public/js/dependencies'
-			}, { 
+			}, /*{ 
         expand: true,
         cwd: './bower_components',
         src: [
@@ -52,13 +53,12 @@ module.exports = function(grunt) {
         dest: '.tmp/public/styles/dependencies'
 			}, { 
         expand: true,
-        cwd: './bower_components',
+        cwd: './assets',
         src: [
-        	'materialize/dist/font/roboto/Roboto-Regular.ttf'
         	//'bootstrap/dist/fonts/glyphicons-halflings-regular.ttf'
         ],
         flatten: true,
-        dest: '.tmp/public/styles/font/roboto'
+        dest: '.tmp/public/styles/font'
 			}, { 
         expand: true,
         cwd: './bower_components',
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         ],
         flatten: true,
         dest: '.tmp/public/styles/font/material-design-icons'
-      }]
+      }*/]
 		},
 		build: {
 			files: [{
