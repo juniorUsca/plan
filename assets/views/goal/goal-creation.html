@@ -1,0 +1,64 @@
+
+<div class="github-commit">
+  <div class="container">
+    <div class="commit">        
+      <a id="github-button" href="#/administration/goal-list" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-hardware-keyboard-return valign left"></i><span class="valign right">Atras</span></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <h4 class="col s12 center header">Meta Nueva.</h4>
+
+
+      <form name="formEdit">
+        <h5 class="col s12 header">Datos de la Meta.</h5>
+        <div class="col s12 divider"></div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-account-box prefix"></i>
+          <input id="codeGoal" type="text" class="validate" ng-model="_target.code" required>
+          <label for="codeGoal" ng-class="{active:_target.code!=undefined}">Codigo</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="nameGoal" type="text" class="validate" ng-model="_target.name" required>
+          <label for="nameGoal" ng-class="{active:_target.name!=undefined}">Nombre</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="budgetGoal" type="text" class="validate" ng-model="_target.budget" required>
+          <label for="budgetGoal" ng-class="{active:_target.budget!=undefined}">Presupuesto</label>
+        </div>
+        <div class="input-field col s12 m4" >
+          <i class="mdi-action-event prefix"></i>
+          <input id="startDateGoal" type="text" class="datepicker" ng-model="_target.startDate" required>
+          <label for="startDateGoal" class="active" ng-class="{active:_target.startDate!=undefined}">Fecha de Inicio</label>
+        </div>
+        <div class="input-field col s12 m4" >
+          <i class="mdi-action-event prefix"></i>
+          <input id="endDateGoal" type="text" class="datepicker" ng-model="_target.endDate" required>
+          <label for="endDateGoal" class="active" ng-class="{active:_target.endDate!=undefined}">Fecha de Fin</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="row center">
+      <button class="btn waves-effect waves-light right" 
+              type="submit" 
+              name="action" 
+              ng-click="save()" 
+              ng-disabled="isClean() || formEdit.$invalid">Guardar<i class="mdi-content-send right"></i></button>
+      <button ng-click="destroy()"
+              ng-show="_target.id" class="btn waves-effect waves-light right">Eliminar</button>
+    </div>
+  </div>
+</div>
+

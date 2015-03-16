@@ -1,7 +1,7 @@
 <header>
   <nav class="top-nav teal lighten-1">
     <div class="container">
-      <div class="nav-wrapper"><a class="page-title" ng-bind="title">Planillas</a></div>
+      <div class="nav-wrapper"><a class="page-title" ng-bind="title">Planillas(RRHH)</a></div>
     </div>
   </nav>
   <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav"><i class="mdi-navigation-menu"></i></a></div>
@@ -11,17 +11,11 @@
     <li class="bold" ng-class="{active:isActive('/')}"><a href="#/" class="waves-effect waves-teal">Inicio</a></li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
-        <li class="bold"><a class="collapsible-header waves-effect waves-teal">Personal</a>
+        <li class="bold"><a class="collapsible-header waves-effect waves-teal">Administracion</a>
           <div class="collapsible-body">
             <ul>
-              <li ng-class="{active:isActive('/personal/worker-list'),bold:isActive('/personal/worker-list')}"><a href="#/personal/worker-list" >Trabajadores</a></li>
-              <li><a href="grid.html">Nominas</a></li>
-              <li><a href="helpers.html">Helpers</a></li>
-              <li><a href="media-css.html">Media</a></li>
-              <li><a href="sass.html">Sass</a></li>
-              <li><a href="shadow.html">Shadow</a></li>
-              <li><a href="table.html">Table</a></li>
-              <li><a href="typography.html">Typography</a></li>
+              <li ng-class="{active:isActive('/administration/worker-list'),bold:isActive('/administration/worker-list')}"><a href="#/administration/worker-list" >Trabajadores</a></li>
+              <li ng-class="{active:isActive('/administration/goal-list'),bold:isActive('/administration/goal-list')}"><a href="#/administration/goal-list" >Metas</a></li>
             </ul>
           </div>
         </li>

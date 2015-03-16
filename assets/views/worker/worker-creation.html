@@ -2,7 +2,7 @@
 <div class="github-commit">
   <div class="container">
     <div class="commit">        
-      <a id="github-button" href="#/personal/worker-list" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-hardware-keyboard-return valign left"></i><span class="valign right">Atras</span></a>
+      <a id="github-button" href="#/administration/worker-list" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-hardware-keyboard-return valign left"></i><span class="valign right">Atras</span></a>
     </div>
   </div>
 </div>
@@ -12,33 +12,43 @@
   <div class="section">
 
     <div class="row">
-      <h4 class="col s12 center header">Personal Nuevo.</h4>
-
-
+      <!--<h4 class="col s12 center header">Personal Nuevo.</h4>-->
       <form name="formEdit">
         <h5 class="col s12 header">Datos Personales.</h5>
         <div class="col s12 divider"></div>
-        <div class="input-field col s12 m6" ng-class="{error: formEdit.dni.$invalid}">
+        <div class="input-field col s12 m6">
           <i class="mdi-action-account-box prefix"></i>
-          <input id="dniWorker" type="text" class="validate" ng-model="_target.dni" required>
+          <input id="dniWorker" name="dniWorker" type="tel" class="validate"
+            pattern="[0-9]*" 
+            ng-model="_target.dni" 
+            required 
+            integer-input 
+            length-num='8'>
+          <!--<span ng-show="formEdit.dniWorker.$error.required" class="mdi-editor-insert-chart"> Campo requerido </span>-->
           <label for="dniWorker" ng-class="{active:_target.dni!=undefined}">N&uacute;mero de DNI</label>
         </div>
         <div class="col s12 offset-m6"></div>
         <div class="col s12 divider"></div>
         <div class="input-field col s12 m4">
           <i class="mdi-action-work prefix"></i>
-          <input id="firstNameWorker" type="text" class="validate" ng-model="_target.firstName" required>
+          <input id="firstNameWorker" type="text" class="validate" 
+            ng-model="_target.firstName" 
+            required
+            letters-input>
           <label for="firstNameWorker" ng-class="{active:_target.firstName!=undefined}">Nombres</label>
         </div>
         <div class="input-field col s12 m4">
           <i class="mdi-action-work prefix"></i>
-          <input id="lastNameWorker" type="text" class="validate" ng-model="_target.lastName" required>
+          <input id="lastNameWorker" type="text" class="validate" 
+            ng-model="_target.lastName" 
+            required
+            letters-input>
           <label for="lastNameWorker" ng-class="{active:_target.lastName!=undefined}">Apellidos</label>
         </div>
         <div class="input-field col s12 m4" >
           <i class="mdi-action-event prefix"></i>
-          <input id="birthdayWorker" type="text" class="datepicker" ng-model="_target.birthday" required>
-          <label for="birthdayWorker" ng-class="{active:_target.birthday!=undefined}">Fecha de Nacimiento</label>
+          <input id="birthdayWorker" type="date" class="datepicker" ng-model="_target.birthday" required>
+          <label for="birthdayWorker" class="active" ng-class="{active:_target.birthday!=undefined}">Fecha de Nacimiento</label>
         </div>
         <div class="col s12 m6 input-field">
           <div class="col s12 m4">
@@ -55,7 +65,9 @@
         </div>
         <div class="col s12 input-field">
           <i class="mdi-action-work prefix"></i>
-          <input id="addressWorker" type="text" class="validate" ng-model="_target.address" required>
+          <input id="addressWorker" type="text" class="validate" 
+            ng-model="_target.address" 
+            required>
           <label for="addressWorker" ng-class="{active:_target.address!=undefined}">Direccion</label>
         </div>
         <div class="col s12 divider"></div>
@@ -93,7 +105,11 @@
         <div class="col s12"></div>
         <div class="input-field col s12 m4">
           <i class="mdi-action-work prefix"></i>
-          <input id="bankAccountWorker" type="text" class="validate" ng-model="_target.office.bankAccount" required>
+          <input id="bankAccountWorker" type="tel" class="validate" 
+            pattern="[0-9]*" 
+            ng-model="_target.office.bankAccount" 
+            required
+            integer-input>
           <label for="bankAccountWorker" ng-class="{active:_target.office.bankAccount!=undefined}">Cuenta de Banco</label>
         </div>
         <div class="col s12 m4" >
@@ -122,15 +138,18 @@
 
   <div class="divider"></div>
 
-  <div class="section">
-    <div class="row center">
-      <button class="btn waves-effect waves-light right" 
+
+  <div class="section" style="height: 100px;">
+    <div class="row right">
+      <button class="btn waves-effect waves-light red darken-2"
+              ng-click="destroy()"
+              ng-show="_target.id">Eliminar
+              <i class="mdi-action-delete right"></i></button>
+      <button class="btn waves-effect waves-light" 
               type="submit" 
-              name="action" 
               ng-click="save()" 
-              ng-disabled="isClean() || formEdit.$invalid">Guardar<i class="mdi-content-send right"></i></button>
-      <button ng-click="destroy()"
-              ng-show="_target.id" class="btn waves-effect waves-light right">Eliminar</button>
+              ng-disabled="isClean() || formEdit.$invalid">Guardar
+              <i class="mdi-content-send right"></i></button>
     </div>
   </div>
 </div>

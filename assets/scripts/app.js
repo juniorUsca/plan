@@ -30,23 +30,65 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/personal/worker-list', {
+      .when('/administration/worker-list', {
         title: 'Trabajadores',
         templateUrl: 'views/worker/worker-list.html',
         controller: 'WorkerListCtrl'
       })
-      .when('/personal/worker-creation', {
+      .when('/administration/worker-creation', {
         title: 'Nuevo Trabajador',
         templateUrl: 'views/worker/worker-creation.html',
         controller: 'WorkerCreationCtrl'
       })
-      .when('/personal/worker-detail/:id', {
+      .when('/administration/worker-edit/:id', {
         title: 'Editando Trabajador',
         templateUrl: 'views/worker/worker-creation.html',
-        controller: 'WorkerDetailCtrl',
+        controller: 'WorkerEditCtrl',
         resolve: {
           _target: function(Restangular, $route) {
             return Restangular.one('worker', $route.current.params.id).get();
+          }
+        }
+      })
+
+      .when('/administration/goal-list', {
+        title: 'Metas',
+        templateUrl: 'views/goal/goal-list.html',
+        controller: 'GoalListCtrl'
+      })
+      .when('/administration/goal-creation', {
+        title: 'Nueva Meta',
+        templateUrl: 'views/goal/goal-creation.html',
+        controller: 'GoalCreationCtrl'
+      })
+      .when('/administration/goal-edit/:id', {
+        title: 'Editando Meta',
+        templateUrl: 'views/goal/goal-creation.html',
+        controller: 'GoalEditCtrl',
+        resolve: {
+          _target: function(Restangular, $route) {
+            return Restangular.one('goal', $route.current.params.id).get();
+          }
+        }
+      })
+
+      .when('/administration/payroll-list', {
+        title: 'Planillas',
+        templateUrl: 'views/payroll/payroll-list.html',
+        controller: 'PayrollListCtrl'
+      })
+      .when('/administration/payroll-creation', {
+        title: 'Nueva Planilla',
+        templateUrl: 'views/payroll/payroll-creation.html',
+        controller: 'PayrollCreationCtrl'
+      })
+      .when('/administration/payroll-edit/:id', {
+        title: 'Editando Planilla',
+        templateUrl: 'views/payroll/payroll-creation.html',
+        controller: 'PayrollEditCtrl',
+        resolve: {
+          _target: function(Restangular, $route) {
+            return Restangular.one('payroll', $route.current.params.id).get();
           }
         }
       })
@@ -57,7 +99,7 @@ angular
 
     RestangularProvider
       .setBaseUrl('http://localhost:1337/')
-      //.setBaseUrl('http://192.168.42.85:1337/')
+      //.setBaseUrl('http://192.168.1.43:1337/')
       //.setDefaultRequestParams({ apiKey: '4f847ad3e4b08a2eed5f3b54' })
       /*.setRestangularFields({
         id: '_id.$oid'

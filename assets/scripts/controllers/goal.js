@@ -2,27 +2,26 @@
 
 /**
  * @ngdoc function
- * @name planApp.controller:WorkerCtrl
+ * @name planApp.controller:GoalCtrl
  * @description
- * # WorkerCtrl
+ * # GoalCtrl
  * Controller of the planApp
  */
 angular.module('planApp')
-  .controller('WorkerListCtrl', function ($scope, Restangular, $location, $route) {
-    $scope._targets = Restangular.all('worker').getList().$object;
+  .controller('GoalListCtrl', function ($scope, Restangular, $location, $route) {
+    $scope._targets = Restangular.all('goal').getList().$object;
 
     $scope.edit = function(_target) {
-      $location.path('/administration/worker-edit/'+_target.id);
+      $location.path('/administration/goal-edit/'+_target.id);
     };
     $scope.destroy = function(_target) {
       _target.remove().then(function() {
-        //$location.path('/administration/worker-list');
         $route.reload();
       });
     };
 
   })
-  .controller('WorkerCreationCtrl', function ($scope, Restangular, $location) {
+  .controller('GoalCreationCtrl', function ($scope, Restangular, $location) {
     var picker = $(".datepicker").pickadate({
       format: "dd/mm/yyyy",
       onClose: function(val) {
@@ -36,14 +35,13 @@ angular.module('planApp')
         });
       }
     });
-    //$scope._target={dni:'00000000'};
     $scope.save = function() {
-      Restangular.all('worker').post($scope._target).then(function(_target) {
-        $location.path('/administration/worker-list');
+      Restangular.all('goal').post($scope._target).then(function(_target) {
+        $location.path('/administration/goal-list');
       });
     }
   })
-  .controller('WorkerEditCtrl', function ($scope, Restangular, $location, _target) {
+  .controller('GoalEditCtrl', function ($scope, Restangular, $location, _target) {
     var picker = $(".datepicker").pickadate({
       format: "dd/mm/yyyy",
       onClose: function(val) {
@@ -66,13 +64,13 @@ angular.module('planApp')
 
     $scope.destroy = function() {
       original.remove().then(function() {
-        $location.path('/administration/worker-list');
+        $location.path('/administration/goal-list');
       });
     };
 
     $scope.save = function() {
       $scope._target.put().then(function() {
-        $location.path('/administration/worker-list');
+        $location.path('/administration/goal-list');
       });
     };
   });
