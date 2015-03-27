@@ -22,19 +22,6 @@ angular.module('planApp')
 
   })
   .controller('GoalCreationCtrl', function ($scope, Restangular, $location) {
-    var picker = $(".datepicker").pickadate({
-      format: "dd/mm/yyyy",
-      onClose: function(val) {
-
-        var val = this.get();
-        var modelName = this.$node.attr("ng-model");
-        var scope = angular.element(this.$node).scope();
-
-        scope.$apply(function() {
-          scope[modelName] = val;
-        });
-      }
-    });
     $scope.save = function() {
       Restangular.all('goal').post($scope._target).then(function(_target) {
         $location.path('/administration/goal-list');
@@ -42,19 +29,6 @@ angular.module('planApp')
     }
   })
   .controller('GoalEditCtrl', function ($scope, Restangular, $location, _target) {
-    var picker = $(".datepicker").pickadate({
-      format: "dd/mm/yyyy",
-      onClose: function(val) {
-
-        var val = this.get();
-        var modelName = this.$node.attr("ng-model");
-        var scope = angular.element(this.$node).scope();
-
-        scope.$apply(function() {
-          scope[modelName] = val;
-        });
-      }
-    });
     var original = _target;
     $scope._target = Restangular.copy(original);
 

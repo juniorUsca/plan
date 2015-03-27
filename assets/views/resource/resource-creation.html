@@ -1,0 +1,67 @@
+
+<div class="github-commit">
+  <div class="container">
+    <div class="commit">        
+      <a id="github-button" href="#/administration/resource-list" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-hardware-keyboard-return valign left"></i><span class="valign right">Atras</span></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <h4 class="col s12 center header">Recurso Nuevo.</h4>
+
+
+      <form name="formEdit">
+        <h5 class="col s12 header">Datos del Recurso.</h5>
+        <div class="col s12 divider"></div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="nameResource" type="text" class="validate" ng-model="_target.name" required>
+          <label for="nameResource" ng-class="{active:_target.name!=undefined}">Nombre</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="budgetResource" type="text" class="validate" ng-model="_target.budget" required>
+          <label for="budgetResource" ng-class="{active:_target.budget!=undefined}">Presupuesto</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="totalNetResource" type="text" class="validate" ng-model="_target.totalNet" required>
+          <label for="totalNetResource" ng-class="{active:_target.totalNet!=undefined}">Total Neto</label>
+        </div>
+        <div class="input-field col s12 m4" >
+          <i class="mdi-action-event prefix"></i>
+          <input id="dateResource" type="text" class="datepicker" ng-model="_target.date" required datepicker>
+          <label for="dateResource" ng-class="{active:_target.date!=undefined}">Fecha</label>
+        </div>
+        <div class="col s12 m4" >
+          <label>Estado</label>
+          <select class="browser-default" ng-model="_target.state" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Disponible">Disponible</option>
+            <option value="No disponible">No disponible</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="row center">
+      <button class="btn waves-effect waves-light right" 
+              type="submit" 
+              name="action" 
+              ng-click="save()" 
+              ng-disabled="isClean() || formEdit.$invalid">Guardar<i class="mdi-content-send right"></i></button>
+      <button ng-click="destroy()"
+              ng-show="_target.id" class="btn waves-effect waves-light right">Eliminar</button>
+    </div>
+  </div>
+</div>
+

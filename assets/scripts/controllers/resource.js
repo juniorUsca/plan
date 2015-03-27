@@ -2,17 +2,17 @@
 
 /**
  * @ngdoc function
- * @name planApp.controller:WorkerCtrl
+ * @name planApp.controller:ResourceCtrl
  * @description
- * # WorkerCtrl
+ * # ResourceCtrl
  * Controller of the planApp
  */
 angular.module('planApp')
-  .controller('WorkerListCtrl', function ($scope, Restangular, $location, $route) {
-    $scope._targets = Restangular.all('worker').getList().$object;
+  .controller('ResourceListCtrl', function ($scope, Restangular, $location, $route) {
+    $scope._targets = Restangular.all('resource').getList().$object;
 
     $scope.edit = function(_target) {
-      $location.path('/administration/worker-edit/'+_target.id);
+      $location.path('/administration/resource-edit/'+_target.id);
     };
     $scope.destroy = function(_target) {
       _target.remove().then(function() {
@@ -22,15 +22,14 @@ angular.module('planApp')
     };
 
   })
-  .controller('WorkerCreationCtrl', function ($scope, Restangular, $location) {
-    //$scope._target={dni:'00000000'};
+  .controller('ResourceCreationCtrl', function ($scope, Restangular, $location) {
     $scope.save = function() {
-      Restangular.all('worker').post($scope._target).then(function(_target) {
-        $location.path('/administration/worker-list');
+      Restangular.all('resource').post($scope._target).then(function(_target) {
+        $location.path('/administration/resource-list');
       });
     }
   })
-  .controller('WorkerEditCtrl', function ($scope, Restangular, $location, _target) {
+  .controller('PayroolEditCtrl', function ($scope, Restangular, $location, _target) {
     var original = _target;
     $scope._target = Restangular.copy(original);
 
@@ -40,13 +39,13 @@ angular.module('planApp')
 
     $scope.destroy = function() {
       original.remove().then(function() {
-        $location.path('/administration/worker-list');
+        $location.path('/administration/resource-list');
       });
     };
 
     $scope.save = function() {
       $scope._target.put().then(function() {
-        $location.path('/administration/worker-list');
+        $location.path('/administration/resource-list');
       });
     };
   });

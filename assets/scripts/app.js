@@ -93,6 +93,27 @@ angular
         }
       })
       
+      .when('/administration/resource-list', {
+        title: 'Recursos',
+        templateUrl: 'views/resource/resource-list.html',
+        controller: 'ResourceListCtrl'
+      })
+      .when('/administration/resource-creation', {
+        title: 'Nuevo Recurso',
+        templateUrl: 'views/resource/resource-creation.html',
+        controller: 'ResourceCreationCtrl'
+      })
+      .when('/administration/resource-edit/:id', {
+        title: 'Editando Recurso',
+        templateUrl: 'views/resource/resource-creation.html',
+        controller: 'ResourceEditCtrl',
+        resolve: {
+          _target: function(Restangular, $route) {
+            return Restangular.one('resource', $route.current.params.id).get();
+          }
+        }
+      })
+
       .otherwise({
         redirectTo: '/'
       });

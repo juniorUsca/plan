@@ -1,0 +1,95 @@
+
+<div class="github-commit">
+  <div class="container">
+    <div class="commit">        
+      <a id="github-button" href="#/administration/payroll-list" class="btn-flat grey-text text-lighten-5 waves-effect waves-light valign-wrapper"><i class="mdi-hardware-keyboard-return valign left"></i><span class="valign right">Atras</span></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <h4 class="col s12 center header">Planilla Nueva.</h4>
+
+
+      <form name="formEdit">
+        <h5 class="col s12 header">Datos de la Planilla.</h5>
+        <div class="col s12 divider"></div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="codePayroll" type="text" class="validate" ng-model="_target.code" required>
+          <label for="codePayroll" ng-class="{active:_target.code!=undefined}">Codigo</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <i class="mdi-action-work prefix"></i>
+          <input id="namePayroll" type="text" class="validate" ng-model="_target.name" required>
+          <label for="namePayroll" ng-class="{active:_target.name!=undefined}">Nombre</label>
+        </div>
+        <div class="col s12 m4" >
+          <label>Estado</label>
+          <select class="browser-default" ng-model="_target.state" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Disponible">Habilitado</option>
+            <option value="No disponible">Deshabilitado</option>
+          </select>
+        </div>
+        <div class="col s12"></div>
+        <div class="input-field col s12 m4" >
+          <i class="mdi-action-event prefix"></i>
+          <input id="startDateGoal" type="text" class="datepicker" ng-model="_target.startDate" required datepicker>
+          <label for="startDateGoal" ng-class="{active:_target.startDate!=undefined}">Fecha de Inicio</label>
+        </div>
+        <div class="input-field col s12 m4" >
+          <i class="mdi-action-event prefix"></i>
+          <input id="endDateGoal" type="text" ng-model="_target.endDate" required datepicker>
+          <label for="endDateGoal" ng-class="{active:_target.endDate!=undefined}">Fecha de Fin</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <div class="_target-search text-center" ng-cloak>
+            <label ng-class="{active:term!=undefined}">Recurso</label>
+            <typeahead class="typeahead" items="_targets" term="term" search="searchTarget(term)" select="selectTarget(item)">
+              <div class="menu" ng-cloak>
+                <ul ng-show="hasTarget()">
+                  <li typeahead-item="resource" ng-repeat="resource in resources" class="results col s12">
+                    <!--<img ng-src="{{imageSource(album)}}">-->
+                    <p class="name">{{resource.name}}</p>
+                  </li>
+                </ul>
+              </div>
+            </typeahead>
+          </div>
+
+        </div>
+        <!--<div class="input-field col s12 m4">
+            <a class='btn' dropdown-button data-activates='dropdown1'>Drop Me!</a>
+
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">one</a></li>
+              <li><a href="#!">two</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">three</a></li>
+            </ul>
+        </div>-->
+      </form>
+    </div>
+  </div>
+
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="row center">
+      <button class="btn waves-effect waves-light right" 
+              type="submit" 
+              name="action" 
+              ng-click="save()" 
+              ng-disabled="isClean() || formEdit.$invalid">Guardar<i class="mdi-content-send right"></i></button>
+      <button ng-click="destroy()"
+              ng-show="_target.id" class="btn waves-effect waves-light right">Eliminar</button>
+    </div>
+  </div>
+</div>
+

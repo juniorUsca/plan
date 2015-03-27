@@ -35,13 +35,13 @@
         </div>
         <div class="input-field col s12 m4" >
           <i class="mdi-action-event prefix"></i>
-          <input id="startDateGoal" type="text" class="datepicker" ng-model="_target.startDate" required>
-          <label for="startDateGoal" class="active" ng-class="{active:_target.startDate!=undefined}">Fecha de Inicio</label>
+          <input id="startDateGoal" type="text" class="datepicker" ng-model="_target.startDate" required datepicker>
+          <label for="startDateGoal" ng-class="{active:_target.startDate!=undefined}">Fecha de Inicio</label>
         </div>
         <div class="input-field col s12 m4" >
           <i class="mdi-action-event prefix"></i>
-          <input id="endDateGoal" type="text" class="datepicker" ng-model="_target.endDate" required>
-          <label for="endDateGoal" class="active" ng-class="{active:_target.endDate!=undefined}">Fecha de Fin</label>
+          <input id="endDateGoal" type="text" class="datepicker" ng-model="_target.endDate" required datepicker>
+          <label for="endDateGoal" ng-class="{active:_target.endDate!=undefined}">Fecha de Fin</label>
         </div>
       </form>
     </div>

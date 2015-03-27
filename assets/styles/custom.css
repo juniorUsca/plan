@@ -5,3 +5,52 @@
 #github-button {
   margin-bottom: 0;
 }
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none;
+z-index: 999;
+}
+
+.menu {
+  z-index: 999;
+}
+._target-search ul {
+  z-index: 999;
+  background-color: #FFF;
+  margin: 0;
+  /*margin-left: 5px;*/
+  padding: 0;
+  list-style: none;
+}
+._target-search .results {
+  z-index: 999;
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  min-height: 64px;
+  padding: 5px 10px;
+}
+._target-search .results.active {
+  background-color: rgb(46, 79, 156);
+}
+._target-search .results.active .name {
+  color: #FFF;
+}
+._target-search .results.active {
+  background-color: rgb(46, 79, 156);
+}
+._target-search .results .name {
+  /*font-size: 20px;*/
+  line-height: 30px;
+}
+._target-search .results p {
+  margin-bottom: 5px;
+/*  margin-left: 5px;*/
+}
+._target-search .results img {
+  width: 64px;
+  height: 64px;
+  float: left;
+}
